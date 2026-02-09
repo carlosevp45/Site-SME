@@ -1,0 +1,30 @@
+{
+  "name": "site-sme",
+  "version": "1.0.0",
+  "description": "Site desenvolvido pelo NTM (Núcleo de Tecnologia Educacional Municipal)",
+  "homepage": "https://github.com/carlosevp45/Site-SME#readme",
+  "bugs": {
+    "url": "https://github.com/carlosevp45/Site-SME/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carlosevp45/Site-SME.git"
+  },
+  "license": "ISC",
+  "author": "NTM",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "css": "npx @tailwindcss/cli -i ./public/css/input.css -o ./public/css/output.css --watch"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.18",
+    "ejs": "^4.0.1",
+    "express": "^5.2.1",
+    "tailwindcss": "^4.1.18"
+  }
+}
