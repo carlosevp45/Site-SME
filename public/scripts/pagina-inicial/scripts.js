@@ -1,5 +1,4 @@
-        // Default configuration
-        const defaultConfig = {
+      const defaultConfig = {
             site_title: 'Secretaria Municipal de Educação',
             hero_title: 'Educação de qualidade para todos os mossoroenses',
             hero_subtitle: 'Transformando vidas através do conhecimento. Acesse nossos serviços, acompanhe notícias e conheça nossas escolas.',
@@ -13,26 +12,25 @@
             surface_color: '#ffffff'
         };
 
-        // Mobile menu functionality
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        const closeMobileMenu = document.getElementById('close-mobile-menu');
         const mobileNavContent = document.getElementById('mobile-nav-content');
 
         const menuData = [
-            { title: 'Início', href: '#inicio' },
+            { title: 'Início', icon: 'fas fa-home', href: '#inicio' },
             {
                 title: 'Institucional',
+                icon: 'fas fa-building',
                 items: [
                     { icon: 'fas fa-landmark', label: 'Sobre a Secretaria', href: '#sobre' },
                     { icon: 'fas fa-user', label: 'Secretário(a)', href: '#secretario' },
-                    { icon: 'fas fa-chart-organization', label: 'Organograma', href: '#organograma' },
-                    { icon: 'fas fa-scroll', label: 'Legislação', href: '#legislacao' },
+                    { icon: 'fas fa-project-diagram', label: 'Organograma', href: '#organograma' },
                     { icon: 'fas fa-map-marker-alt', label: 'Contato e Localização', href: '#contato' }
                 ]
             },
             {
                 title: 'Ensino',
+                icon: 'fas fa-graduation-cap',
                 items: [
                     { icon: 'fas fa-child', label: 'Educação Infantil', href: '#infantil' },
                     { icon: 'fas fa-book-open', label: 'Ensino Fundamental', href: '#fundamental' },
@@ -42,16 +40,19 @@
                 ]
             },
             {
-                title: 'Escolas',
+                title: 'Unidades',
+                icon: 'fas fa-school',
                 items: [
-                    { icon: 'fas fa-list', label: 'Lista de Escolas', href: '#lista-escolas' },
+                    { icon: 'fas fa-list', label: 'Unidades de Ensino', href: 'https://docs.google.com/spreadsheets/d/1MaJMWlAuXEiTXIsRWugc8yUNAlHJMPH4RWyu8mqo2z4/edit?gid=1927424469#gid=1927424469' },
                     { icon: 'fas fa-map', label: 'Mapa das Escolas', href: '#mapa' },
-                    { icon: 'fas fa-baby', label: 'Creches', href: '#creches' },
+                    { icon: 'fas fa-compass', label: 'Por Zona', href: '#zonas' },
+                    { icon: 'fas fa-baby', label: 'UEIs', href: '#creches' },
                     { icon: 'fas fa-palette', label: 'CMEIs', href: '#cmeis' }
                 ]
             },
             {
                 title: 'Serviços',
+                icon: 'fas fa-concierge-bell',
                 items: [
                     { icon: 'fas fa-pen-to-square', label: 'Matrícula Online', href: '#matricula' },
                     { icon: 'fas fa-bus', label: 'Transporte Escolar', href: '#transporte' },
@@ -62,73 +63,127 @@
                 ]
             },
             {
-                title: 'Profissionais',
-                items: [
-                    { icon: 'fas fa-clipboard-list', label: 'Concursos e Seleções', href: '#concursos' },
-                    { icon: 'fas fa-chalkboard-user', label: 'Formação Continuada', href: '#formacao' },
-                    { icon: 'fas fa-desktop', label: 'Portal do Servidor', href: '#portal-servidor' },
-                    { icon: 'fas fa-list-check', label: 'PCCR', href: '#pccr' }
-                ]
-            },
-            {
-                title: 'Transparência',
+                title: 'NTM',
+                icon: 'fas fa-eye',
                 items: [
                     { icon: 'fas fa-money-bill-wave', label: 'Licitações', href: '#licitacoes' },
                     { icon: 'fas fa-file-lines', label: 'Contratos', href: '#contratos' },
+                    { icon: 'fas fa-link', label: 'Convênios', href: '#convenios' },
                     { icon: 'fas fa-chart-bar', label: 'Prestação de Contas', href: '#prestacao' },
                     { icon: 'fas fa-coins', label: 'FUNDEB', href: '#fundeb' },
                     { icon: 'fas fa-arrow-trend-up', label: 'Indicadores', href: '#indicadores' }
                 ]
+            },
+            {
+                title: 'Sistemas',
+                icon: 'fas fa-building',
+                items: [
+                    { icon: 'fas fa-landmark', label: 'SIGEduc', href: '#' },
+                    { icon: 'fas fa-user', label: 'Moodle', href: '#secretario' },
+                    { icon: 'fas fa-project-diagram', label: 'SAEM', href: '#organograma' }
+                ]
             }
         ];
 
-        // Generate mobile menu
+        const mobileDropdownArea = document.getElementById('mobile-dropdown-area');
+        let activeMobileNav = null;
+
         function generateMobileMenu() {
             mobileNavContent.innerHTML = menuData.map((item, index) => {
                 if (!item.items) {
-                    return `<a href="${item.href}" class="block px-4 py-3 text-slate-700 font-medium hover:bg-slate-100 rounded-lg"><i class="fas fa-home mr-2"></i>${item.title}</a>`;
+                    return `<a href="${item.href}" class="mobile-nav-item" onclick="closeMobileMenuAfterClick()">
+                        <i class="${item.icon}"></i> ${item.title}
+                    </a>`;
                 }
-                return `
-          <div class="border-b border-slate-100 pb-2 mb-2">
-            <button onclick="toggleMobileAccordion(${index})" class="w-full flex items-center justify-between px-4 py-3 text-slate-700 font-medium hover:bg-slate-100 rounded-lg">
-              <span><i class="fas fa-chevron-down mr-2"></i>${item.title}</span>
-              <i class="fas fa-chevron-down transform transition-transform" id="accordion-icon-${index}"></i>
-            </button>
-            <div class="mobile-accordion-content" id="accordion-content-${index}">
-              <div class="pl-4 py-2 space-y-1">
-                ${item.items.map(subItem => `
-                  <a href="${subItem.href}" class="flex items-center gap-3 px-4 py-2 text-slate-600 hover:bg-blue-50 hover:text-blue-600 rounded-lg text-sm">
-                    <i class="${subItem.icon}"></i>
-                    ${subItem.label}
-                  </a>
-                `).join('')}
-              </div>
-            </div>
-          </div>
-        `;
+                return `<button class="mobile-nav-item" data-menu-index="${index}" onclick="toggleMobileDropdown(${index})">
+                    ${item.title}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                    </svg>
+                </button>`;
             }).join('');
         }
 
-        function toggleMobileAccordion(index) {
-            const content = document.getElementById(`accordion-content-${index}`);
-            const icon = document.getElementById(`accordion-icon-${index}`);
-            content.classList.toggle('active');
-            if (icon) {
-                icon.style.transform = content.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0)';
+        function toggleMobileDropdown(index) {
+            const allBtns = mobileNavContent.querySelectorAll('.mobile-nav-item[data-menu-index]');
+            const clickedBtn = mobileNavContent.querySelector(`[data-menu-index="${index}"]`);
+            const item = menuData[index];
+
+            if (activeMobileNav === index) {
+
+                clickedBtn.classList.remove('active');
+                mobileDropdownArea.classList.remove('active');
+                mobileDropdownArea.innerHTML = '';
+                activeMobileNav = null;
+                return;
             }
+
+            allBtns.forEach(btn => btn.classList.remove('active'));
+            clickedBtn.classList.add('active');
+            activeMobileNav = index;
+
+            mobileDropdownArea.innerHTML = `
+                <div class="mobile-dropdown-grid">
+                    ${item.items.map(subItem => `
+                        <a href="${subItem.href}" onclick="closeMobileMenuAfterClick()">
+                            <i class="${subItem.icon}"></i>
+                            ${subItem.label}
+                        </a>
+                    `).join('')}
+                </div>
+            `;
+            mobileDropdownArea.classList.add('active');
+        }
+
+        function closeMobileMenuAfterClick() {
+            mobileMenu.classList.remove('active');
+            mobileDropdownArea.classList.remove('active');
+            mobileDropdownArea.innerHTML = '';
+            activeMobileNav = null;
+            const allBtns = mobileNavContent.querySelectorAll('.mobile-nav-item[data-menu-index]');
+            allBtns.forEach(btn => btn.classList.remove('active'));
         }
 
         mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
-
-        closeMobileMenu.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-            document.body.style.overflow = '';
+            mobileMenu.classList.toggle('active');
+            if (!mobileMenu.classList.contains('active')) {
+                closeMobileMenuAfterClick();
+            }
         });
 
         generateMobileMenu();
+
+        (function () {
+            const slides = document.querySelectorAll('.hero-slide');
+            const dots = document.querySelectorAll('.hero-dot');
+            if (slides.length === 0) return;
+            let current = 0;
+
+            function goToSlide(index) {
+                slides[current].classList.remove('opacity-100');
+                slides[current].classList.add('opacity-0');
+                dots[current].classList.remove('bg-white/80');
+                dots[current].classList.add('bg-white/40');
+
+                current = index;
+
+                slides[current].classList.remove('opacity-0');
+                slides[current].classList.add('opacity-100');
+                dots[current].classList.remove('bg-white/40');
+                dots[current].classList.add('bg-white/80');
+            }
+
+            // função que passa automaticamente para o próximo slide. 6000  milissegundos = 6 segundos
+            setInterval(() => {
+                goToSlide((current + 1) % slides.length);
+            }, 6000);
+
+            dots.forEach((dot) => {
+                dot.addEventListener('click', () => {
+                    goToSlide(Number(dot.dataset.slide));
+                });
+            });
+        })();
 
         // Element SDK integration
         async function onConfigChange(config) {
@@ -148,7 +203,6 @@
             if (footerPhoneDisplay) footerPhoneDisplay.textContent = config.footer_phone || defaultConfig.footer_phone;
             if (headerPhone) headerPhone.textContent = config.footer_phone || defaultConfig.footer_phone;
 
-            // Apply colors
             const bgColor = config.background_color || defaultConfig.background_color;
             const primaryColor = config.primary_color || defaultConfig.primary_color;
             const textColor = config.text_color || defaultConfig.text_color;
@@ -157,20 +211,17 @@
 
             document.body.style.backgroundColor = bgColor;
 
-            // Update hero gradient
-            const hero = document.getElementById('hero');
-            if (hero) {
-                hero.style.background = `linear-gradient(135deg, ${primaryColor} 0%, ${adjustColor(primaryColor, 20)} 50%, ${adjustColor(primaryColor, 40)} 100%)`;
+            const heroOverlay = document.querySelector('#hero .absolute.inset-0.bg-black\\/50');
+            if (heroOverlay) {
+                heroOverlay.style.background = `linear-gradient(135deg, ${primaryColor}cc 0%, ${adjustColor(primaryColor, 20)}99 50%, ${adjustColor(primaryColor, 40)}80 100%)`;
             }
 
-            // Update stats section
             const stats = document.getElementById('stats');
             if (stats) {
                 stats.style.background = `linear-gradient(to right, ${primaryColor}, ${adjustColor(primaryColor, 15)})`;
             }
         }
 
-        // Helper function to adjust color brightness
         function adjustColor(hex, percent) {
             const num = parseInt(hex.replace('#', ''), 16);
             const amt = Math.round(2.55 * percent);
@@ -221,7 +272,6 @@
             ]);
         }
 
-        // Initialize SDK
         if (window.elementSdk) {
             window.elementSdk.init({
                 defaultConfig,
