@@ -6,16 +6,16 @@
 </head>
 
 <body class="h-full bg-slate-50">
-    <div id="app" class="w-full h-full overflow-x-hidden overflow-y-auto">
+    <div id="app" class="w-full h-full overflow-x-hidden overflow-y-auto ">
         <%- include("../componentes/pagina-inicial/top-bar") %>
 
         <!-- Header Principal -->
-        <header id="main-header" class="bg-white shadow-md sticky top-0 z-50">
-            <div class="max-w-7xl mx-auto px-4">
-                <div class="flex items-center justify-between py-4">
+        <header id="main-header" class="bg-blue-800 shadow-md sticky top-0 z-50">
+            <div class="max-w-7xl mx-auto px-4 bg-blue-800">
+                <div class="flex items-center justify-between py-4 bg-blue-800">
                     <%- include("../componentes/pagina-inicial/header-principal/logo") %>
                     <!-- Navigation Desktop -->
-                    <nav class="hidden lg:flex items-center gap-1" id="main-nav">
+                    <nav class="hidden lg:flex items-center gap-1 " id="main-nav">
                         <%- include("../componentes/pagina-inicial/header-principal/botao-inicio") %>
                         <%- include("../componentes/pagina-inicial/header-principal/nav-item-institucional") %>
                         <%- include("../componentes/pagina-inicial/header-principal/nav-item-ensino") %>
