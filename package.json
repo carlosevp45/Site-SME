@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@tailwindcss/cli": "^4.1.18",
+    "aos": "^2.3.4",
     "ejs": "^4.0.1",
     "express": "^5.2.1",
     "tailwindcss": "^4.1.18"
