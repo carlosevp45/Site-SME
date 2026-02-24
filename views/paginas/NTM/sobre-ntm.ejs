@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="pt-BR" class="h-full">
+
+<head>
+    <%- include("../../head") %>
+    <title>Sobre o NTM - Secretaria Municipal de Educação</title>
+</head>
+
+<body class="h-full bg-slate-50">
+    <div id="app" class="w-full h-full overflow-x-hidden overflow-y-auto">
+        <%- include("../../componentes/pagina-inicial/top-bar") %>
+
+        <header id="main-header" class="bg-blue-800 shadow-md sticky top-0 z-50">
+            <div class="max-w-7xl mx-auto px-4 bg-blue-800">
+                <div class="flex items-center justify-between py-4 bg-blue-800">
+                    <%- include("../../componentes/pagina-inicial/header-principal/logo") %>
+                    <nav class="hidden lg:flex items-center gap-1" id="main-nav">
+                        <%- include("../../componentes/pagina-inicial/header-principal/botao-inicio") %>
+                        <%- include("../../componentes/pagina-inicial/header-principal/nav-item-institucional") %>
+                        <%- include("../../componentes/pagina-inicial/header-principal/nav-item-ensino") %>
+                        <%- include("../../componentes/pagina-inicial/header-principal/nav-item-unidades") %>
+                        <%- include("../../componentes/pagina-inicial/header-principal/nav-item-servicos") %>
+                        <%- include("../../componentes/pagina-inicial/header-principal/nav-item-NTM") %>
+                        <%- include("../../componentes/pagina-inicial/header-principal/nav-item-sistemas") %>
+                    </nav>
+                    <%- include("../../componentes/pagina-inicial/header-principal/mobile-menu-button") %>
+                </div>
+            </div>
+            <%- include("../../componentes/pagina-inicial/mobile-menu") %>
+        </header>
+
+        <section class="bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 text-white py-16">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="flex items-center gap-4 mb-4">
+                    <a href="/" class="text-blue-200 hover:text-white text-sm transition-colors flex items-center gap-1">
+                        <i class="fas fa-house"></i> Início
+                    </a>
+                    <i class="fas fa-chevron-right text-blue-300 text-xs"></i>
+                    <span class="text-blue-200 text-sm">NTM</span>
+                    <i class="fas fa-chevron-right text-blue-300 text-xs"></i>
+                    <span class="text-white text-sm font-medium">Sobre o NTM</span>
+                </div>
+                <div class="flex items-center gap-5">
+                    <div class="w-16 h-16 rounded-2xl overflow-hidden flex-shrink-0">
+                        <img src="/img/NTM/NTM-logo.jpeg" alt="Logo NTM" class="w-full h-full object-contain">
+                    </div>
+                    <div>
+                        <h1 class="text-3xl lg:text-4xl font-heading font-bold leading-tight">
+                            Núcleo de Tecnologia<br>Educacional Municipal
+                        </h1>
+                        <p class="text-blue-200 mt-2 text-lg">Tecnologia a serviço da educação de Mossoró</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <main class="max-w-7xl mx-auto px-4 py-12">
+
+            <section class="mb-12">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-microchip text-blue-700"></i>
+                    </div>
+                    <h2 class="text-2xl font-heading font-bold text-slate-800">O que é o NTM?</h2>
+                </div>
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-8">
+                    <p class="text-slate-600 leading-relaxed text-base">
+                        O <strong class="text-slate-800">Núcleo de Tecnologia Educacional Municipal (NTM)</strong> foi implantado por meio do ofício nº 273/2010 pela DITEC/SEED/MEC, passando a funcionar em 2011, no edifício Joaquim da Silveira Borges, no município de Mossoró/RN, tendo com finalidade <strong class="text-slate-800">sensibilizar e motivar os profissionais da educação</strong> para a incorporação das TDIC nas atividades didático-pedagógicas, apoiando o planejamento das escolas e capacitando professores-multiplicadores e equipes de suporte técnico por meio de cursos e assessoramento pedagógico ao processo de ensino e aprendizagem.
+                    </p>
+                </div>
+            </section>
+
+            <section class="mb-12">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-users-gear text-blue-700"></i>
+                    </div>
+                    <h2 class="text-2xl font-heading font-bold text-slate-800">Nossa Equipe</h2>
+                </div>
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-8">
+                    <p class="text-slate-600 leading-relaxed text-base mb-8">
+                        O NTM conta, atualmente, com uma equipe de profissionais capacitados:
+                    </p>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                        <div class="text-center p-5 bg-blue-50 rounded-xl">
+                            <div class="w-12 h-12 bg-blue-700 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-user-tie text-white text-lg"></i>
+                            </div>
+                            <div class="text-2xl font-heading font-bold text-blue-800">01</div>
+                            <div class="text-sm text-slate-600 mt-1 font-medium">Coordenador</div>
+                        </div>
+                        <div class="text-center p-5 bg-green-50 rounded-xl">
+                            <div class="w-12 h-12 bg-green-700 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-chalkboard-user text-white text-lg"></i>
+                            </div>
+                            <div class="text-2xl font-heading font-bold text-green-800">03</div>
+                            <div class="text-sm text-slate-600 mt-1 font-medium">Professores Formadores</div>
+                        </div>
+                        <div class="text-center p-5 bg-purple-50 rounded-xl">
+                            <div class="w-12 h-12 bg-purple-700 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-screwdriver-wrench text-white text-lg"></i>
+                            </div>
+                            <div class="text-2xl font-heading font-bold text-purple-800">03</div>
+                            <div class="text-sm text-slate-600 mt-1 font-medium">Técnicos</div>
+                        </div>
+                        <div class="text-center p-5 bg-amber-50 rounded-xl">
+                            <div class="w-12 h-12 bg-amber-600 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <i class="fas fa-broom text-white text-lg"></i>
+                            </div>
+                            <div class="text-2xl font-heading font-bold text-amber-700">03</div>
+                            <div class="text-sm text-slate-600 mt-1 font-medium">Estagiários</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-12">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-laptop-code text-blue-700"></i>
+                    </div>
+                    <h2 class="text-2xl font-heading font-bold text-slate-800">Programas e Projetos</h2>
+                </div>
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-8">
+                    <p class="text-slate-600 leading-relaxed text-base">
+                        Além dos cursos e oficinas, o NTM também desenvolve alguns projetos e ações voltados para a educação, já implementados e/ou que estejam em andamento. Atualmente, o NTM segue as diretrizes do programa <strong class="text-slate-800">Educação Conectada</strong>. Este programa é desenvolvido tendo como base quatro dimensões: <strong class="text-slate-800">Visão, Formação, Recursos Educacionais Digitais e Infraestrutura</strong>. Embora a criação do programa seja recente (novembro de 2017), o NTM já desenvolve várias ações que se inserem nas quatro dimensões defendidas pelo referido programa, conforme demonstra o quadro abaixo:
+                    </p>
+                </div>
+            </section>
+
+            <section class="mb-12">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-network-wired text-blue-700"></i>
+                    </div>
+                    <h2 class="text-2xl font-heading font-bold text-slate-800">As 4 Dimensões do Programa Educação Conectada</h2>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 hover:shadow-md transition-shadow">
+                        <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+                            <i class="fas fa-lightbulb text-blue-700 text-xl"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-slate-800 text-lg mb-2">Visão</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed">Projeto Aluno-Monitor: protagonismo e tecnologia; Programas de Formação continuada - PROINFO; Projeto: Gestão e Tecnologia</p>
+                    </div>
+                    <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 hover:shadow-md transition-shadow">
+                        <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4">
+                            <i class="fas fa-chalkboard-user text-green-700 text-xl"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-slate-800 text-lg mb-2">Competências</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed">Criação de cursos e programas de capacitação para alunos e professores com foco na transformação através do ensino.</p>
+                    </div>
+                    <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 hover:shadow-md transition-shadow">
+                        <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
+                            <i class="fas fa-book-open text-purple-700 text-xl"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-slate-800 text-lg mb-2">Conteúdos e Recursos Digitais</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed">Produção: Coletânea de Softwares educativos</p>
+                    </div>
+                    <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 hover:shadow-md transition-shadow">
+                        <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center mb-4">
+                            <i class="fas fa-wifi text-amber-700 text-xl"></i>
+                        </div>
+                        <h3 class="font-heading font-bold text-slate-800 text-lg mb-2">Infraestrutura</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed">Aquisições de tablets e mesas digitais</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <%- include("../../componentes/pagina-inicial/footer") %>
+    </div>
+    <script src="/scripts/pagina-inicial/scripts.js"></script>
+</body>
+
+</html>
