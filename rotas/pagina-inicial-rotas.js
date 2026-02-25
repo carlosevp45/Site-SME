@@ -9,4 +9,8 @@ router.get("/NTM/sobre", async(req, res) => {
     res.render("paginas/NTM/sobre-ntm")
 })
 
+router.get("/NTM/na-escola", async(req, res) => {
+    res.render("paginas/NTM/ntm-na-escola")
+})
+
 export default router;

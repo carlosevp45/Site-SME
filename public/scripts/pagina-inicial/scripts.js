@@ -43,11 +43,16 @@
                 title: 'Unidades',
                 icon: 'fas fa-school',
                 items: [
-                    { icon: 'fas fa-list', label: 'Unidades de Ensino', href: 'https://docs.google.com/spreadsheets/d/1MaJMWlAuXEiTXIsRWugc8yUNAlHJMPH4RWyu8mqo2z4/edit?gid=1927424469#gid=1927424469' },
-                    { icon: 'fas fa-map', label: 'Mapa das Escolas', href: '#mapa' },
-                    { icon: 'fas fa-compass', label: 'Por Zona', href: '#zonas' },
-                    { icon: 'fas fa-baby', label: 'UEIs', href: '#creches' },
-                    { icon: 'fas fa-palette', label: 'CMEIs', href: '#cmeis' }
+                    { icon: 'fas fa-list', label: 'Unidades de Ensino', href: 'https://www.google.com/maps/d/u/2/edit?mid=18eGd24SPaZ237mnihV0zV1MTFcVPzME&usp=sharing', target: '_blank' },
+                    { icon: 'fas fa-map', label: 'Mapa das Escolas', href: 'https://www.google.com/maps/d/u/2/edit?mid=1r__wV_HYfRDqTNQajDeaBcVRFKqoqDk&usp=sharing', target: '_blank' },
+                    { icon: 'fas fa-tree', label: 'Zona Rural', href: 'https://www.google.com/maps/d/u/2/edit?mid=1Fo-l3G8UaDIuyZDRTvdKYqP-J_e9eio&usp=sharing', target: '_blank' },
+                    { icon: 'fas fa-arrow-up', label: 'Zona Norte', href: 'https://www.google.com/maps/d/edit?mid=1ncplmy-S5MUv10NvSBz5rJwtj78ouAE&usp=sharing', target: '_blank' },
+                    { icon: 'fas fa-arrow-down', label: 'Zona Sul', href: 'https://www.google.com/maps/d/edit?mid=1KFLrCOog5lrWXaU78SmQ-QQVfkg2HVI&usp=sharing', target: '_blank' },
+                    { icon: 'fas fa-arrow-right', label: 'Zona Leste', href: 'https://www.google.com/maps/d/edit?mid=1x_VzGcNhgatDbHsSlyjMqPax152PijU&usp=sharing', target: '_blank' },
+                    { icon: 'fas fa-arrow-left', label: 'Zona Oeste', href: 'https://www.google.com/maps/d/edit?mid=1wuLpSA2_bJZhWundXne_fLHjIDXwmRY&usp=sharing', target: '_blank' },
+                    { icon: 'fa-brands fa-centercode', label: 'Zona Central', href: 'https://www.google.com/maps/d/edit?mid=1h5M4mlJz-6o0dXif7p4i1Vg8S_REPcg&usp=sharing', target: '_blank' },
+                    { icon: 'fas fa-baby', label: 'UEIs', href: 'https://www.google.com/maps/d/u/2/edit?mid=1r__wV_HYfRDqTNQajDeaBcVRFKqoqDk&usp=sharing', target: '_blank' },
+                    { icon: 'fas fa-palette', label: 'CMEIs', href: 'https://www.google.com/maps/d/u/2/edit?mid=1MeCtFskVHwdq62NSyEbPoIN-1LNtHs0&usp=sharing', target: '_blank' }
                 ]
             },
             {
@@ -64,23 +69,23 @@
             },
             {
                 title: 'NTM',
-                icon: 'fas fa-eye',
+                icon: 'fas fa-laptop-code',
                 items: [
-                    { icon: 'fas fa-money-bill-wave', label: 'Licitações', href: '#licitacoes' },
-                    { icon: 'fas fa-file-lines', label: 'Contratos', href: '#contratos' },
-                    { icon: 'fas fa-link', label: 'Convênios', href: '#convenios' },
-                    { icon: 'fas fa-chart-bar', label: 'Prestação de Contas', href: '#prestacao' },
+                    { icon: 'fas fa-circle-info', label: 'Sobre o NTM', href: '/ntm/sobre' },
+                    { icon: 'fas fa-users-gear', label: 'Nossa Equipe', href: '#contratos' },
+                    { icon: 'fas fa-computer', label: 'O NTM nas Escolas', href: '/NTM/na-escola' },
+                    { icon: 'fas fa-file-invoice', label: 'Prestação de Contas', href: '#prestacao' },
                     { icon: 'fas fa-coins', label: 'FUNDEB', href: '#fundeb' },
-                    { icon: 'fas fa-arrow-trend-up', label: 'Indicadores', href: '#indicadores' }
+                    { icon: 'fas fa-chart-line', label: 'Indicadores', href: '#indicadores' }
                 ]
             },
             {
                 title: 'Sistemas',
-                icon: 'fas fa-building',
+                icon: 'fas fa-desktop',
                 items: [
-                    { icon: 'fas fa-landmark', label: 'SIGEduc', href: '#' },
-                    { icon: 'fas fa-user', label: 'Moodle', href: '#secretario' },
-                    { icon: 'fas fa-project-diagram', label: 'SAEM', href: '#organograma' }
+                    { icon: 'fas fa-landmark', label: 'SIGEduc', href: 'https://sigeduc.rn.gov.br/sigeduc/public/home.jsf', target: '_blank' },
+                    { icon: 'fas fa-user', label: 'Moodle', href: 'https://moodle.com/pt-br/', target: '_blank' },
+                    { icon: 'fas fa-project-diagram', label: 'SAEM', href: 'https://saem.sme.mossoro.rn.gov.br/', target: '_blank' }
                 ]
             }
         ];
@@ -125,7 +130,7 @@
             mobileDropdownArea.innerHTML = `
                 <div class="mobile-dropdown-grid">
                     ${item.items.map(subItem => `
-                        <a href="${subItem.href}" onclick="closeMobileMenuAfterClick()">
+                        <a href="${subItem.href}"${subItem.target ? ` target="${subItem.target}"` : ''} onclick="closeMobileMenuAfterClick()">
                             <i class="${subItem.icon}"></i>
                             ${subItem.label}
                         </a>
@@ -146,10 +151,31 @@
 
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('active');
+            mobileMenuBtn.classList.toggle('active');
             if (!mobileMenu.classList.contains('active')) {
                 closeMobileMenuAfterClick();
             }
         });
+
+        document.addEventListener('click', (e) => {
+            if (mobileMenu.classList.contains('active') &&
+                !mobileMenu.contains(e.target) &&
+                !mobileMenuBtn.contains(e.target)) {
+                mobileMenu.classList.remove('active');
+                mobileMenuBtn.classList.remove('active');
+                closeMobileMenuAfterClick();
+            }
+        });
+
+        const mainHeader = document.getElementById('main-header');
+
+        document.addEventListener('touchstart', (e) => {
+            if (mobileMenu.classList.contains('active') && !mainHeader.contains(e.target)) {
+                mobileMenu.classList.remove('active');
+                mobileMenuBtn.classList.remove('active');
+                closeMobileMenuAfterClick();
+            }
+        }, { passive: true });
 
         generateMobileMenu();
 

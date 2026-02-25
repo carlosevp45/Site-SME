@@ -16,6 +16,10 @@
             overflow-x: hidden;
         }
 
+        #main-header {
+            z-index: 200;
+        }
+
         body > * {
             max-width: 100%;
         }
@@ -122,13 +126,31 @@
             transform: translateX(0);
         }
 
+        /* Mobile menu button */
+        #mobile-menu-btn {
+            background: transparent !important;
+            outline: none;
+        }
+
+        #mobile-menu-btn:focus,
+        #mobile-menu-btn:hover {
+            background: transparent !important;
+            outline: none;
+        }
+
+        #mobile-menu-btn.active {
+            background: transparent !important;
+            outline: 2px solid #ffffff;
+            outline-offset: 1px;
+        }
+
         /* Mobile menu */
         .mobile-menu {
             display: none;
-            background: white;
+            background: #3b82f6;
             z-index: 100;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            border-top: 1px solid #e2e8f0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            border-top: 1px solid #2563eb;
         }
 
         .mobile-menu.active {
@@ -149,7 +171,7 @@
             padding: 8px 12px;
             font-size: 13px;
             font-weight: 500;
-            color: #334155;
+            color: #ffffff;
             cursor: pointer;
             border-radius: 6px;
             transition: all 0.15s ease;
@@ -161,8 +183,8 @@
 
         .mobile-nav-item:hover,
         .mobile-nav-item.active {
-            background: #f0f7ff;
-            color: #0066cc;
+            background: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
         }
 
         .mobile-nav-item svg {
@@ -176,10 +198,10 @@
         }
 
         .mobile-dropdown-area {
-            border-top: 1px solid #e2e8f0;
+            border-top: 1px solid #2563eb;
             display: none;
             padding: 12px 16px;
-            background: #f8fafc;
+            background: #1d4ed8;
         }
 
         .mobile-dropdown-area.active {
@@ -197,7 +219,7 @@
             align-items: center;
             gap: 8px;
             padding: 10px 14px;
-            color: #1e3a5f;
+            color: #ffffff;
             font-size: 13px;
             border-radius: 8px;
             transition: all 0.15s ease;
@@ -206,8 +228,8 @@
         }
 
         .mobile-dropdown-grid a:hover {
-            background: #e0edff;
-            color: #0066cc;
+            background: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
         }
 
         .mobile-dropdown-grid a i {
