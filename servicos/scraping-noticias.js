@@ -28,8 +28,17 @@ export async function buscarNoticias(limite = null) {
     const html = await resposta.text();
     const $ = cheerio.load(html);
     const noticias = [];
+/* Scrapping das notícias do link  https://prefeiturademossoro.com.br/categoria/educacao */
+
+/* Para pegar as informações das notícias do link, é feito
+scrapping das informações utilizado a função fetch do javascript, junto com o método .find().
+*/
 
     $("#list-noticias .col-md-3").each((_i, el) => {
+        /* O método .find() pega as informações da classe dentro da tag no link e armazena na variável. 
+        Sempre que o layout do link mudar, é preciso entrar no link, verificar a nova classe utilizando F12 (inspetor de código), e
+        atualizar a  respectiva classe dentro do método .find() */
+
         const tituloEl = $(el).find("p a.text-pmmblue").first();
         const titulo = tituloEl.text().trim();
         const link = tituloEl.attr("href") || $(el).find("a").first().attr("href") || "";

@@ -35,6 +35,10 @@ router.get("/NTM/na-escola", async (_req, res) => {
     res.render("paginas/NTM/ntm-na-escola");
 });
 
+router.get("/NTM/formacao-continuada", async (_req, res) => {
+    res.render("paginas/NTM/formacao-continuada");
+});
+
 router.get("/institucional/sobre", async (_req, res) => {
     res.render("paginas/INSTITUCIONAL/sobre-secretaria");
 });
