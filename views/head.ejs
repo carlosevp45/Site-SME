@@ -1,4 +1,15 @@
     <meta charset="UTF-8">
+    <script>
+        (function () {
+            try {
+                if (localStorage.getItem('altoContraste') === 'true') {
+                    document.documentElement.classList.add('alto-contraste');
+                }
+                var fs = localStorage.getItem('fontSize');
+                if (fs) document.documentElement.style.fontSize = fs + 'px';
+            } catch (e) {}
+        })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Secretaria Municipal de Educação - Mossoró</title>
     <script src="https://cdn.tailwindcss.com"></script>

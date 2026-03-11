@@ -1,3 +1,55 @@
+/* Função de Acessibilidade */
+(function () {
+    var DEFAULT_FONT = 16;
+    var STEP = 2;
+    var MIN_FONT = 12;
+    var MAX_FONT = 24;
+
+    function getFontSize() {
+        return parseInt(localStorage.getItem('fontSize')) || DEFAULT_FONT;
+    }
+
+    function applyFontSize(size) {
+        size = Math.max(MIN_FONT, Math.min(MAX_FONT, size));
+        document.documentElement.style.fontSize = size + 'px';
+        localStorage.setItem('fontSize', size);
+    }
+
+    window.aumentarFonte = function () {
+        applyFontSize(getFontSize() + STEP);
+    };
+
+    window.diminuirFonte = function () {
+        applyFontSize(getFontSize() - STEP);
+    };
+
+    function applyAltoContraste(ativo) {
+        var html = document.documentElement;
+        var btn = document.getElementById('btn-alto-contraste');
+        if (ativo) {
+            html.classList.add('alto-contraste');
+        } else {
+            html.classList.remove('alto-contraste');
+        }
+        if (btn) {
+            btn.setAttribute('aria-pressed', ativo ? 'true' : 'false');
+        }
+    }
+
+    window.toggleAltoContraste = function () {
+        var ativo = localStorage.getItem('altoContraste') === 'true';
+        localStorage.setItem('altoContraste', String(!ativo));
+        applyAltoContraste(!ativo);
+    };
+
+    /* Sincroniza o aria-pressed do botão após o DOM estar pronto */
+    document.addEventListener('DOMContentLoaded', function () {
+        var ativo = localStorage.getItem('altoContraste') === 'true';
+        var btn = document.getElementById('btn-alto-contraste');
+        if (btn) btn.setAttribute('aria-pressed', ativo ? 'true' : 'false');
+    });
+})();
+
       const defaultConfig = {
             site_title: 'Secretaria Municipal de Educação',
             hero_title: 'Educação de qualidade para todos os mossoroenses',

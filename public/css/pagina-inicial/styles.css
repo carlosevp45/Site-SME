@@ -1,4 +1,103 @@
 
+/* ============================================================
+   BARRA DE ACESSIBILIDADE
+   ============================================================ */
+.topbar-a11y-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-size: 0.75rem;
+    line-height: 1.4;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+    white-space: nowrap;
+}
+
+.topbar-a11y-btn:hover,
+.topbar-a11y-btn:focus-visible {
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.4);
+    outline: none;
+}
+
+.topbar-a11y-btn[aria-pressed="true"] {
+    background: #ffffff;
+    color: #1e3a5f;
+    border-color: #ffffff;
+}
+
+/* ============================================================
+   ALTO CONTRASTE — padrão gov.br / WCAG 2.1
+   Referência: https://www.gov.br/governodigital/pt-br/acessibilidade-e-usuario/acessibilidade-digital
+   ============================================================ */
+html.alto-contraste,
+html.alto-contraste body {
+    background-color: #000000 !important;
+    color: #ffff00 !important;
+}
+
+html.alto-contraste * {
+    background-color: #000000 !important;
+    color: #ffff00 !important;
+    border-color: #ffff00 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+}
+
+html.alto-contraste a,
+html.alto-contraste a * {
+    color: #ffff00 !important;
+    text-decoration: underline !important;
+}
+
+html.alto-contraste a:visited,
+html.alto-contraste a:visited * {
+    color: #ffb3ff !important;
+}
+
+html.alto-contraste button,
+html.alto-contraste [role="button"] {
+    background-color: #000000 !important;
+    color: #ffff00 !important;
+    border: 1px solid #ffff00 !important;
+}
+
+html.alto-contraste button:hover,
+html.alto-contraste [role="button"]:hover {
+    background-color: #ffff00 !important;
+    color: #000000 !important;
+}
+
+html.alto-contraste img {
+    filter: grayscale(100%) contrast(1.5) !important;
+}
+
+html.alto-contraste input,
+html.alto-contraste select,
+html.alto-contraste textarea {
+    background-color: #000000 !important;
+    color: #ffff00 !important;
+    border: 1px solid #ffff00 !important;
+}
+
+html.alto-contraste #btn-alto-contraste {
+    background-color: #ffff00 !important;
+    color: #000000 !important;
+    border-color: #ffff00 !important;
+}
+
+html.alto-contraste #top-bar {
+    background-color: #000000 !important;
+    border-bottom: 1px solid #ffff00 !important;
+}
+
+/* ============================================================ */
+
 *, *::before, *::after {
             box-sizing: border-box;
         }
